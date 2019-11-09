@@ -1,0 +1,14 @@
+# ~/.pylagritc 
+#-- Pylagritc file can be in home directory or working directory.
+#-- The rc file in the working directory will take precedence over the one in your home directory. 
+
+lagrit_exe : 'lagrit'  				# added to $PATH
+paraview_exe : 'paraview' 			# also added to $PATH
+#gmv_exe : '/gmv/executable/location/gmv' 	# don't have one 
+
+
+#--------------------------------------------------
+#paths to :
+#lagrit_exe --> '~/Users/JohnOrtiz/software/LaGrit' 
+#current, actual executable file --> 'LaGriT_v3.3_macOS.No.Exodus'
+#paraview_exe --> '/Applications/ParaView-5.4.0-RC1.app/Contents/MacOS' 
