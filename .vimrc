@@ -16,7 +16,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'		" Plugin manager
 Plugin 'tmhedberg/SimpylFold'		" smarter folding
 Plugin 'vim-scripts/indentpython.vim'	" better auto-indentation
-Plugin 'Valloric/YouCompleteMe'		" Python auto-complete (+jedi)
+" Plugin 'Valloric/YouCompleteMe'		" Python auto-complete (+jedi)
 Plugin 'nvie/vim-flake8'		" PEP8 checking
 Plugin 'scrooloose/syntastic'		" checks syntax each save
 Plugin 'scrooloose/nerdtree'		" cool visual file tree
@@ -34,6 +34,13 @@ Plugin 'junegunn/seoul256.vim'		" nice light vim colorscheme
 Plugin 'ayu-theme/ayu-vim' 		" nice light vim colorscheme 
 Plugin 'romainl/flattened'		"  '   '  '
 Plugin 'lifepillar/vim-solarized8'
+Plugin 'davidhalter/jedi-vim'   		" jedi for python
+" Plugin 'roxma/nvim-yarp'  		" dependency of ncm2
+" Plugin 'roxma/vim-hug-neovim-rpc'	" dependency
+" Plugin 'ncm2/ncm2'			" python completion
+" Plugin 'ncm2/ncm2-bufword'  		" buffer keyword completion
+" Plugin 'ncm2/ncm2-path'  		" filepath completion
+Plugin 'ervandew/supertab'		" use <Tab> for insert completions
 
 "Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
@@ -271,7 +278,7 @@ let g:slime_paste_file = "$HOME/.slime_paste"
 let g:slime_python_ipython = 1	"use iPython's error-free magic pasting
 
 " }}}
-" ================ Helpful Python VIM configs ======================== 
+" ================ Python VIM configs ======================== 
 " Code folding {{{
 set number "
 " --- Code Folding ---
@@ -294,7 +301,7 @@ au BufNewFile,BufRead *.py
 			\ set tabstop=4 |
 			\ set softtabstop=4 |
 			\ set shiftwidth=4 |
-			\ set textwidth=79 |
+			" \ set textwidth=79 |
 			\ set expandtab |
 			\ set autoindent |
 			\ set fileformat=unix |
@@ -304,12 +311,28 @@ set encoding=utf-8
 " }}}
 " Python auto-complete {{{
 set number "
-" --- Python Auto-complete ---
-" Installed YouCompleteMe plugin
-let g:ycm_autoclose_preview_window_after_completion=1
-  "ensures autocomplete window goes away when you're done with it
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-  "will go to definition of whatever you're currently on (mapped <,g>)
+" --- Jedi Auto-complete ---
+autocmd FileType python setlocal completeopt-=preview "disable docstring popup
+
+" --- YouCompleteMe (didn't like) ---
+" " Installed YouCompleteMe plugin
+" let g:ycm_autoclose_preview_window_after_completion=1
+  " "ensures autocomplete window goes away when you're done with it
+" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+  " "will go to definition of whatever you're currently on (mapped <,g>)
+
+" " --- NCM3 Autocomplete ---
+" " ncm2 settings
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+" set completeopt=menuone,noselect,noinsert
+" set shortmess+=c
+" inoremap <c-c> <ESC>
+" " make it fast
+" let ncm2#popup_delay = 5
+" let ncm2#complete_length = [[1, 1]]
+" " Use new fuzzy based matches
+" let g:ncm2#matcher = 'substrfuzzy'
+
 " }}}
 " Virtualenv support {{{
 set number "
