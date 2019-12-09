@@ -46,7 +46,7 @@ export PATH
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-
+# export PYTHONDONTWRITEBYTECODE=1  #prevent __pycache generation messing up ipython
 source activate py36		#anaconda python environment 3.6
 export PYTHONPATH=$PYTHONPATH:/Users/JohnOrtiz/anaconda/envs/py36/lib/python3.6/site-packages
 # source activate python2	#anaconda python environment 2.7

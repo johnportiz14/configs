@@ -305,6 +305,21 @@ au BufNewFile,BufRead *.py
 			\ set expandtab |
 			\ set autoindent |
 			\ set fileformat=unix |
+" --- Also for latex indentation ---
+" autocmd Filetype tex 
+au BufNewFile,BufRead *.tex
+			\ set tabstop=4 |
+			\ set textwidth=79 |
+			\ set autoindent |
+			\ setlocal indentexpr= |
+
+" --- Auto-indent issues ---
+" see what indentexpression is being used for current filetype
+" :set indentexpr? (if nonempty, indentexpr mode is being used)
+" :set indentkeys? (gives list of trigger keys)
+
+" set nocindent
+" set nosmartindent
 
 " --- UTF8 Support ---
 set encoding=utf-8
