@@ -44,6 +44,7 @@ alias latexmk='latexmk --pdf -pvc'
 # --- Tmux ---
 alias nw='tmux new-window'
 # --- FEHM ---
+alias go='xfehm'
 # set to whichever executable currently working with
 alias xfehm='FEHM_v3.3.0macMav.04Dec15.exe'
 # --- LaGriT ---
